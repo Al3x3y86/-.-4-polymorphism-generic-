@@ -7,9 +7,13 @@ public abstract class Driver {
     private int experience;
 
     public Driver(String name, boolean driversLicense, int experience) {
-        this.name = name;
+        if (name != null || !name.isEmpty() || !name.isBlank()) {
+            this.name = name;
+        }
         this.driversLicense = driversLicense;
-        this.experience = experience;
+        if (experience < 0) {
+            this.experience = experience;
+        }
     }
 
     @Override
@@ -26,7 +30,9 @@ public abstract class Driver {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (name != null || !name.isEmpty() || !name.isBlank()) {
+            this.name = name;
+        }
     }
 
     public boolean isDriversLicense() {
@@ -42,8 +48,11 @@ public abstract class Driver {
     }
 
     public void setExperience(int experience) {
-        this.experience = experience;
+        if (experience < 0) {
+            this.experience = experience;
+        }
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -58,3 +67,4 @@ public abstract class Driver {
         return Objects.hash(name, driversLicense, experience);
     }
 }
+

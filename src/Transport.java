@@ -13,7 +13,7 @@ public abstract class Transport {
         if (model != null || !model.isEmpty() || !model.isBlank()) {
             this.model = model;
         }
-        if (engineVolume < 0|| !model.isEmpty() || !model.isBlank()) {
+        if (engineVolume < 0) {
             this.engineVolume = engineVolume;
         }
     }

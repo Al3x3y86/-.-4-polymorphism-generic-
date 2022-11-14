@@ -5,9 +5,13 @@ public class CategoryDriverD <T extends Transport, D extends Driver>{
     private int experience;
 
     public CategoryDriverD(String name, boolean driversLicense, int experience) {
-        this.name = name;
+        if (name != null || !name.isEmpty() || !name.isBlank()) {
+            this.name = name;
+        }
         this.driversLicense = driversLicense;
-        this.experience = experience;
+        if (experience < 0) {
+            this.experience = experience;
+        }
     }
 
     public void getIn (T Buses){
@@ -31,7 +35,9 @@ public class CategoryDriverD <T extends Transport, D extends Driver>{
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (name != null || !name.isEmpty() || !name.isBlank()) {
+            this.name = name;
+        }
     }
 
     public boolean isDriversLicense() {
@@ -47,6 +53,8 @@ public class CategoryDriverD <T extends Transport, D extends Driver>{
     }
 
     public void setExperience(int experience) {
-        this.experience = experience;
+        if (experience < 0) {
+            this.experience = experience;
+        }
     }
 }
