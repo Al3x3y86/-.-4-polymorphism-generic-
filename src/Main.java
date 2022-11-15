@@ -1,3 +1,4 @@
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Легковые автомобили");
@@ -50,19 +51,20 @@ public class Main {
 
         System.out.println("Водители");
 
-        CategoryDriverB <Transport, Driver> Vladimir = new CategoryDriverB<>("Владимир", true,5);
+
+        DriverB Vladimir = new DriverB ("Владимир", true,5);
         Vladimir.getIn(Lada);
         Vladimir.startMoving();
         Vladimir.refuelTheCar();
         Vladimir.stay();
 
-        CategoryDriverС<Transport,Driver> Alexander = new CategoryDriverС<>("Александр", true,7);
+        DriverС Alexander = new DriverС ("Александр", true,7);
         Alexander.getIn(Kamaz);
         Alexander.startMoving();
         Alexander.refuelTheCar();
         Alexander.stay();
 
-        CategoryDriverD<Transport,Driver> Ivan = new CategoryDriverD<>("Иван", true, 9);
+        DriverD Ivan = new DriverD ("Иван", true, 9);
         Ivan.getIn(Nefaz);
         Ivan.startMoving();
         Ivan.refuelTheCar();

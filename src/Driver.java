@@ -1,12 +1,13 @@
 import java.util.Objects;
 
-public abstract class Driver {
+public abstract class Driver < T extends Transport >{
 
     private String name;
     private boolean driversLicense;
     private int experience;
 
     public Driver(String name, boolean driversLicense, int experience) {
+
         if (name != null || !name.isEmpty() || !name.isBlank()) {
             this.name = name;
         }
@@ -14,11 +15,6 @@ public abstract class Driver {
         if (experience < 0) {
             this.experience = experience;
         }
-    }
-
-    @Override
-    public String toString() {
-        return "Водитель" + name + ", наличие водительских прав" + driversLicense +", стаж" + experience +'.';
     }
 
     public abstract void startMoving();
