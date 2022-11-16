@@ -1,4 +1,3 @@
-
 public class Main {
     public static void main(String[] args) {
         System.out.println("Легковые автомобили");
@@ -51,25 +50,44 @@ public class Main {
 
         System.out.println("Водители");
 
-
-        DriverB Vladimir = new DriverB ("Владимир", true,5);
+        DriverB Vladimir = new DriverB ("Владимир", true,5, "B");
         Vladimir.getIn(Lada);
         Vladimir.startMoving();
         Vladimir.refuelTheCar();
         Vladimir.stay();
 
-        DriverС Alexander = new DriverС ("Александр", true,7);
+        DriverС Alexander = new DriverС ("Александр", true,7, "D");
         Alexander.getIn(Kamaz);
         Alexander.startMoving();
         Alexander.refuelTheCar();
         Alexander.stay();
 
-        DriverD Ivan = new DriverD ("Иван", true, 9);
+        DriverD Ivan = new DriverD ("Иван", true, 9,"C");
         Ivan.getIn(Nefaz);
         Ivan.startMoving();
         Ivan.refuelTheCar();
         Ivan.stay();
 
+        System.out.println("Диагностика");
+        passDiagnostics(Lada,Audi,BMW,KIA,
+                       Kamaz,Man,MAZ, Hyundai,
+                       Nefaz,Volvo,Scania,PAZ);
 
+    }
+
+    private static void passDiagnostics(Transport... transports) {
+        for (Transport transport : transports){
+            passDiagnosticsTransport(transport);
+        }
+    }
+
+    private static void passDiagnosticsTransport(Transport transport) {
+        try {
+            if (!transport.passDiagnostics()){
+                throw new RuntimeException("Автомобиль "+ transport.getBrand()+ " "+ transport.getModel()+ " не прошел диагностику");
+            }
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

@@ -1,11 +1,11 @@
-public class DriverС extends Driver < Cars > {
+public class DriverС extends Driver < Trucks > {
 
-    public DriverС(String name, boolean driversLicense, int experience) {
-        super(name, driversLicense, experience);
+    public DriverС(String name, boolean driversLicense, int experience, String category) {
+        super(name, driversLicense, experience, category);
     }
-
-    public void getIn (Transport Trucks){
-        System.out.println("Водитель "+ getName()+ " управляет автомобилем " +Trucks.getBrand()+ " и будет участвовать в заезде");
+    @Override
+        public void getIn (Trucks transport){
+        System.out.println("Водитель "+ getName()+ " управляет автомобилем " +transport.getBrand()+ " и будет участвовать в заезде");
     }
 
     public void startMoving() {
@@ -19,5 +19,7 @@ public class DriverС extends Driver < Cars > {
     public void refuelTheCar() {
         System.out.println("Водителю грузового автомобиля необходимо заправить авто.");
     }
+
+
 
 }

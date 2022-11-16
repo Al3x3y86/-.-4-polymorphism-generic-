@@ -18,14 +18,9 @@ public abstract class Transport {
         }
     }
 
-    @Override
-    public String toString() {
-        return "Марка: " + brand + ", Модель: " + model + ", Объем двигателя: " + engineVolume +".";
-
-    }
-
     public abstract void startMoving();
     public abstract void finishTheMove();
+    public abstract boolean passDiagnostics();
 
     public String getBrand() {
         return brand;

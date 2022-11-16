@@ -1,6 +1,5 @@
 public class Trucks extends Transport implements Competing{
 
-
     public Trucks(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
     }
@@ -13,6 +12,11 @@ public class Trucks extends Transport implements Competing{
     @Override
     public void finishTheMove() {
         System.out.println("Грузовик закончил движение.");
+    }
+
+    @Override
+    public boolean passDiagnostics() {
+        return Math.random() > 0.8;
     }
 
     @Override

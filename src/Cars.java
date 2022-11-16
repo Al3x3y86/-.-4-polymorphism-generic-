@@ -4,7 +4,7 @@ public class Cars extends Transport implements Competing{
         super(brand, model, engineVolume);
     }
 
-     @Override
+    @Override
     public void startMoving() {
         System.out.println("Легковая машина начала движение.");
     }
@@ -12,6 +12,11 @@ public class Cars extends Transport implements Competing{
     @Override
     public void finishTheMove() {
         System.out.println("Легковая машина закончила движение.");
+    }
+
+    @Override
+    public boolean passDiagnostics() {
+        return Math.random() > 0.6;
     }
 
     @Override
