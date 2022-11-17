@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public abstract class Driver < T extends Transport >{
+public abstract class Driver < T extends Transport>{
 
     private String name;
     private boolean driversLicense;
@@ -13,9 +13,8 @@ public abstract class Driver < T extends Transport >{
             this.name = name;
         }
         this.driversLicense = driversLicense;
-        if (experience < 0) {
-            this.experience = experience;
-        }
+        this.experience = experience;
+
         setCategory(category);
     }
 
@@ -45,6 +44,11 @@ public abstract class Driver < T extends Transport >{
         }
     }
 
+    @Override
+    public String toString() {
+        return  name + ", стаж вождения: " + experience + " лет, категория: " +category;
+    }
+
     public boolean isDriversLicense() {
         return driversLicense;
     }
@@ -58,9 +62,7 @@ public abstract class Driver < T extends Transport >{
     }
 
     public void setExperience(int experience) {
-        if (experience < 0) {
-            this.experience = experience;
-        }
+
     }
 
 

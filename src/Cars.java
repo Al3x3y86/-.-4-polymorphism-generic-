@@ -20,6 +20,11 @@ public class Cars extends Transport implements Competing{
     }
 
     @Override
+    public void repair() {
+        System.out.println( "Машина " + getBrand()+ " "+ getModel() + " отремонтирована");
+    }
+
+    @Override
     public void pitStop() {
         System.out.println("Легковому автомобилю " +getBrand()+ " необходимо заехать на Пит-стоп!");
     }

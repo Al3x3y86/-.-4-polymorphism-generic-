@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public abstract class Transport {
@@ -5,6 +8,9 @@ public abstract class Transport {
     private String brand;
     private String model;
     private double engineVolume;
+    private List<Driver<?>> drivers = new ArrayList<>();
+    private List<Mechanic<?>> mechanics = new ArrayList<>();
+    private List<Sponsor> sponsors = new ArrayList<>();
 
     public Transport(String brand, String model, double engineVolume) {
         if (brand != null || !brand.isEmpty() || !brand.isBlank()) {
@@ -18,9 +24,34 @@ public abstract class Transport {
         }
     }
 
+    public void addDriver(Driver<?>... driver) {
+        this.drivers.addAll(Arrays.asList(driver));
+    }
+
+    public void addMechanic(Mechanic<?>... mechanic) {
+        this.mechanics.addAll(Arrays.asList(mechanic));
+    }
+
+    public void addSponsor(Sponsor... sponsor) {
+        this.sponsors.addAll(Arrays.asList(sponsor));
+    }
+
     public abstract void startMoving();
     public abstract void finishTheMove();
     public abstract boolean passDiagnostics();
+    public abstract void repair();
+
+    public List<Driver<?>> getDrivers() {
+        return drivers;
+    }
+
+    public List<Mechanic<?>> getMechanics() {
+        return mechanics;
+    }
+
+    public List<Sponsor> getSponsors() {
+        return sponsors;
+    }
 
     public String getBrand() {
         return brand;

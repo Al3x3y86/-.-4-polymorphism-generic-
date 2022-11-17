@@ -20,6 +20,4 @@ public class DriverС extends Driver < Trucks > {
         System.out.println("Водителю грузового автомобиля необходимо заправить авто.");
     }
 
-
-
 }

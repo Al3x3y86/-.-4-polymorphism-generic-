@@ -28,6 +28,10 @@ public class Trucks extends Transport implements Competing{
     public void bestLapTime() {
         System.out.println("Лучшее время круга было у грузового автомобиля " +getBrand()+ "!");
     }
+    @Override
+    public void repair() {
+        System.out.println( "Грузовик " + getBrand()+ " "+ getModel() + " отремонтирован");
+    }
 
     @Override
     public void maxSpeed() {

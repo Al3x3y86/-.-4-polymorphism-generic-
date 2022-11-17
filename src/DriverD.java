@@ -20,5 +20,4 @@ public class DriverD extends Driver < Buses > {
         System.out.println("Водителю автобуса необходимо заправить авто.");
     }
 
-
 }
