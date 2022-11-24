@@ -1,4 +1,7 @@
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -52,19 +55,19 @@ public class Main {
 
 //        System.out.println("Водители");
 //
-//        DriverB Vladimir = new DriverB ("Владимир", true,5, "B");
+        DriverB Vladimir = new DriverB ("Владимир", true,5, "B");
 //        Vladimir.getIn(KIA);
 //        Vladimir.startMoving();
 //        Vladimir.refuelTheCar();
 //        Vladimir.stay();
 //
-//        DriverС Alexander = new DriverС ("Александр", true,7, "D");
+        DriverС Alexander = new DriverС ("Александр", true,7, "D");
 //        Alexander.getIn(Kamaz);
 //        Alexander.startMoving();
 //        Alexander.refuelTheCar();
 //        Alexander.stay();
 //
-//        DriverD Ivan = new DriverD ("Иван", true, 9,"C");
+        DriverD Ivan = new DriverD ("Иван", true, 9,"C");
 //        Ivan.getIn(PAZ);
 //        Ivan.startMoving();
 //        Ivan.refuelTheCar();
@@ -75,7 +78,7 @@ public class Main {
 //                       Kamaz,Man,MAZ, Hyundai,
 //                       Nefaz,Volvo,Scania,PAZ);
 
-        System.out.println("Спонсоры и механики");
+//        System.out.println("Спонсоры и механики");
 
         Mechanic<Transport> Tolyn = new Mechanic<>("Анатолий","Анатольев", "Гаража7");
         Mechanic<Cars> Vasay =new Mechanic<Cars>("Вася", "Васильев", "Гаража1");
@@ -84,33 +87,63 @@ public class Main {
         Sponsor Bank2 = new Sponsor( "Банк 2",3_000_000);
         Sponsor Bank3 = new Sponsor( "Банк 3",7_000_000);
 
-        Lada.addDriver(new DriverB ("Роман", true,9, "В"));
-        Lada.addMechanic(Tolyn);
-        Lada.addSponsor(Bank3);
+        System.out.println("Информация без повторов");
+        Set<Mechanic> Mechanic = new HashSet<>();
+        Mechanic.add(Tolyn);
+        Mechanic.add(Vasay);
+        Mechanic.add(Tolyn);
+        Mechanic.add(Sergey);
+        System.out.println(Arrays.toString(Mechanic.toArray()));
 
-        KIA.addDriver(new DriverB ("Александр", true,7, "В"));
-        KIA.addMechanic(Vasay);
-        KIA.addSponsor(Bank1);
+        Set<Sponsor> Bank = new HashSet<>();
+        Bank.add(Bank1);
+        Bank.add(Bank2);
+        Bank.add(Bank1);
+        Bank.add(Bank3);
+        System.out.println(Arrays.toString(Bank.toArray()));
 
-        Kamaz.addDriver(new DriverС ("Александр", true,7, "C"));
-        Kamaz.addMechanic(Sergey);
-        Kamaz.addSponsor(Bank2);
+        Set<Transport> Transport = new HashSet<>();
+        Transport.add(Lada);
+        Transport.add(PAZ);
+        Transport.add(Lada);
+        Transport.add(Kamaz);
+        System.out.println(Arrays.toString(Transport.toArray()));
 
-        PAZ.addDriver(new DriverD ("Иван", true, 9,"D"));
-        PAZ.addMechanic(Sergey);
-        PAZ.addSponsor(Bank2);
+        Set<Driver> Driver = new HashSet<>();
+        Driver.add(Vladimir);
+        Driver.add(Alexander);
+        Driver.add(Vladimir);
+        Driver.add(Ivan);
+        System.out.println(Arrays.toString(Driver.toArray()));
 
-        List<Transport> transports = List.of(Lada, KIA,Kamaz,PAZ);
 
-        ServiceStation serviceStation = new ServiceStation();
-        serviceStation.addCar(Lada);
-        serviceStation.addTruck(Kamaz);
-        serviceStation.passDiagnostics();
-        serviceStation.passDiagnostics();
-
-        for (Transport transport : transports) {
-            printInfo(transport);
-        }
+//        Lada.addDriver(new DriverB ("Роман", true,9, "В"));
+//        Lada.addMechanic(Tolyn);
+//        Lada.addSponsor(Bank3);
+//
+//        KIA.addDriver(new DriverB ("Александр", true,7, "В"));
+//        KIA.addMechanic(Vasay);
+//        KIA.addSponsor(Bank1);
+//
+//        Kamaz.addDriver(new DriverС ("Александр", true,7, "C"));
+//        Kamaz.addMechanic(Sergey);
+//        Kamaz.addSponsor(Bank2);
+//
+//        PAZ.addDriver(new DriverD ("Иван", true, 9,"D"));
+//        PAZ.addMechanic(Sergey);
+//        PAZ.addSponsor(Bank2);
+//
+//        List<Transport> transports = List.of(Lada, KIA,Kamaz,PAZ);
+//
+//        ServiceStation serviceStation = new ServiceStation();
+//        serviceStation.addCar(Lada);
+//        serviceStation.addTruck(Kamaz);
+//        serviceStation.passDiagnostics();
+//        serviceStation.passDiagnostics();
+////
+//        for (Transport transport : transports) {
+//            printInfo(transport);
+//        }
 
     }
 

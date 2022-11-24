@@ -24,6 +24,11 @@ public abstract class Transport {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Бренд: " + brand + ", модель:  " + model + ", двигатель: " + engineVolume;
+    }
+
     public void addDriver(Driver<?>... driver) {
         this.drivers.addAll(Arrays.asList(driver));
     }

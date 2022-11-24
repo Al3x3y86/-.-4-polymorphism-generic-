@@ -38,4 +38,5 @@ public class Cars extends Transport implements Competing{
     public void maxSpeed() {
         System.out.println("Максимальная скорость на этом заезде была у легкового автомобиля " +getBrand()+ "!");
     }
+
 }
